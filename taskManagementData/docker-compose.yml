@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  lbmssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    networks:
+      - default
+    ports:
+      - 1433:1433
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: NotGonnaG8Us
+    volumes:
+      - ./data:/data
+
+  load:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    command: /data/setup-dbs.sh
+    volumes:
+      - ./data:/data
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: NotGonnaG8Us
+
+networks:
+  default:
