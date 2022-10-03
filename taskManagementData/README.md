@@ -4,7 +4,7 @@
 
 ## Local Database (Microsoft SQL Server 2019)
 
-Docker builds for a basic fake local db containing Customer DB and QA_TestingDB DB
+Docker builds for a basic local db
 
 ## Folder structure
 
